@@ -1,0 +1,40 @@
+%!TEX TS-program = xelatex
+%!TEX options = -aux-directory=Debug -shell-escape -file-line-error -interaction=nonstopmode -halt-on-error -synctex=1 "%DOC%"
+\documentclass{standalone}
+
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\setmathfont{TeX Gyre Pagella Math}[range={bb,bbit}, Scale=MatchUppercase]
+
+\usepackage{calc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{circuitikz}
+
+\begin{document}
+    \begin{tikzpicture}
+        \draw[fill=blue!60] (0, 0) rectangle ++ (2, 6) node[pos=0.5,rotate=90] {Environment};
+        \draw[fill=gray!80] (2, 0) ++ (0.2, 0) rectangle (14, 6);
+
+        \draw[fill=blue!60] (3, 0.5) rectangle ++ (2.5, 1) node[pos=0.5] {\small{User Interface}};
+        \draw[fill=blue!60] (3, 2.5) rectangle ++ (2.5, 1) node[pos=0.5] {\small{Actuator}};
+        \draw[fill=blue!60] (3, 4.5) rectangle ++ (2.5, 1) node[pos=0.5] {\small{Sensor}};
+        \draw[->] (2, 1) -- ++ (1, 0);
+        \draw[<-] (2, 3) -- ++ (1, 0);
+        \draw[->] (2, 5) -- ++ (1, 0);
+
+        \draw[<->] (5.5, 1) -| ++ (0.5, 1.75) |- ++ (0.75, 0);
+        \draw[<->] (5.5, 3) -- ++ (1.25, 0);
+        \draw[<->] (5.5, 5) -| ++ (0.5, -1.75) |- ++ (0.75, 0);
+
+        \draw[fill=blue!60] (6.75, 2.5) rectangle ++ (2.5, 1) node[pos=0.5] {\parbox{\widthof{\small{Analog/Digital}}}{\centering\small Analog/Digital\\Ports}};
+        \draw[fill=blue!60] (10.75, 2.5) rectangle ++ (2.5, 1) node[pos=0.5] {Processor};
+        \draw[fill=blue!60] (10.75, 4.25) rectangle ++ (2.5, 1) node[pos=0.5] {Memory};
+
+        \draw[<->] (9.25, 3) -- ++ (1.5, 0);
+        \draw[->] (10, 3) |- ++ (0.75, 1.75);
+        \draw[<->] (12, 3.5) -- ++ (0, 0.75);
+
+        \draw[dashed, thick] (6.375, 2.125) rectangle ++ (7.25, 3.5) ++ (0, -3.5) node[anchor=north east] {\textbf{Microcontroller}};
+    \end{tikzpicture}
+\end{document}
