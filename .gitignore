@@ -46,6 +46,7 @@
 *.pyg
 *.pygstyle
 *.pygtex
+*.minted
 
 # LaTeX indent
 *.bak*
